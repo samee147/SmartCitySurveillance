@@ -2,6 +2,7 @@ import sys
 import json
 from ultralytics import YOLO
 
+
 model = YOLO('yolov8n.pt') 
 
 def analyze_video(video_path):
@@ -16,21 +17,32 @@ def analyze_video(video_path):
             verbose=False
         )
 
-        summary = {}
+        total_frames = len(results)
+        if total_frames == 0:
+            total_frames = 1 
+
+        total_counts = {}
+
         for result in results:
             for box in result.boxes:
                 class_id = int(box.cls[0])
                 class_name = model.names[class_id]
-                summary[class_name] = summary.get(class_name, 0) + 1
+                total_counts[class_name] = total_counts.get(class_name, 0) + 1
+
+        avg_summary = {}
+        for class_name, total_count in total_counts.items():
+            avg_summary[class_name] = round(total_count / total_frames)
 
         civic_issue_detected = "None"
         
-        person_count = summary.get('person', 0)
-        vehicle_count = summary.get('car', 0) + summary.get('bus', 0) + summary.get('truck', 0)
+        avg_people = avg_summary.get('person', 0)
+        avg_vehicles = (avg_summary.get('car', 0) + 
+                        avg_summary.get('bus', 0) + 
+                        avg_summary.get('truck', 0))
 
-        if person_count > 5:
+        if avg_people > 5:
             civic_issue_detected = "Public Overcrowding (Street Vendor/Pedestrian)"
-        elif vehicle_count > 5:
+        elif avg_vehicles > 8:
             civic_issue_detected = "Heavy Traffic Congestion"
 
         filename = video_path.split('\\')[-1].split('/')[-1]
@@ -38,8 +50,8 @@ def analyze_video(video_path):
 
         output_data = {
             "status": "success",
-            "summary": summary,
-            "civic_issue": civic_issue_detected, 
+            "summary": avg_summary, 
+            "civic_issue": civic_issue_detected,
             "output_video": f"uploads/processed/{output_filename}"
         }
 
