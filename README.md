@@ -12,7 +12,7 @@ The system allows users to upload a short video (recorded via mobile) of a stree
 
 ### Demo Preview
 ![Demo Preview](assets/demo.gif)
-*Above: The web interface analyzing a street video.*
+*Above: The web interface analyzing a street video.(takes about 2 min 30 sec to analyze the video)*
 
 ---
 
