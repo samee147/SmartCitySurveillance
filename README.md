@@ -11,7 +11,7 @@
 The system allows users to upload a short video (recorded via mobile) of a street. It processes the footage using **Computer Vision (YOLOv8)** to detect and flag issues such as **Heavy Traffic Congestion** or **Public Overcrowding**.
 
 ### Demo Preview
-![Demo Preview](uploads/demo.gif)
+![Demo Preview](public/uploads/demo.gif)
 *Above: The web interface analyzing a street video.*
 
 ---
