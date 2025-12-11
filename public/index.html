@@ -78,7 +78,6 @@
 
             if (!input.files[0]) { alert("Please select a file!"); return; }
 
-            // UI Reset
             btn.disabled = true; btn.innerText = "Analyzing...";
             loading.style.display = 'block'; results.style.display = 'none';
 
@@ -88,8 +87,7 @@
             try {
                 const response = await fetch('/analyze', { method: 'POST', body: formData });
                 const data = await response.json();
-                
-                // 1. Update Issue Status
+                       
                 const issue = data.civic_issue || "None";
                 issueText.innerText = issue;
                 if (issue !== "None") {
@@ -101,13 +99,10 @@
                     issueText.innerText = "✅ No Civic Issues Detected";
                 }
 
-                // 2. Update Video Player
-                // Note: The path comes from Python as "uploads/processed/..."
                 const videoPath = data.output_video; 
                 videoPlayer.src = videoPath;
                 downloadLink.href = videoPath;
 
-                // 3. Update Stats
                 const container = document.getElementById('statsContainer');
                 container.innerHTML = '';
                 const summary = data.summary || {};
