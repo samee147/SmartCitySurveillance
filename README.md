@@ -11,7 +11,7 @@
 The system allows users to upload a short video (recorded via mobile) of a street. It processes the footage using **Computer Vision (YOLOv8)** to detect and flag issues such as **Heavy Traffic Congestion** or **Public Overcrowding**.
 
 ### Demo Preview
-![Demo Preview](uploads/demo.gif)
+uploads/demo.gif
 *Above: The web interface analyzing a street video.*
 
 ---
@@ -20,10 +20,7 @@ The system allows users to upload a short video (recorded via mobile) of a stree
 
 | Upload Interface | AI Analysis Result | Annotated Video Feed |
 |:---:|:---:|:---:|
-| <img width="2237" height="1310" alt="Screenshot 2025-12-11 154011" src="https://github.com/user-attachments/assets/064752c7-ea57-4902-92e0-689ffecdcb62" />
- | <img width="2239" height="1244" alt="Screenshot 2025-12-10 233026" src="https://github.com/user-attachments/assets/9d0ab6de-5c88-4b1e-96f6-aef1fa671a78" />
- | <img width="921" height="1181" alt="Screenshot 2025-12-11 153905" src="https://github.com/user-attachments/assets/415c8433-3b35-4934-b645-850b94ad8eda" />
- |
+|<img width="2237" height="1310" alt="Screenshot 2025-12-11 154011" src="https://github.com/user-attachments/assets/064752c7-ea57-4902-92e0-689ffecdcb62" />|<img width="2239" height="1244" alt="Screenshot 2025-12-10 233026" src="https://github.com/user-attachments/assets/9d0ab6de-5c88-4b1e-96f6-aef1fa671a78" />|<img width="921" height="1181" alt="Screenshot 2025-12-11 153905" src="https://github.com/user-attachments/assets/415c8433-3b35-4934-b645-850b94ad8eda" />|
 
 ---
 
